@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { LOCALS_URL, LOCAL_URL, CATEGORIES_URL} from "../urls";
+import { LOCALS_URL, LOCAL_URL, CATEGORIES_URL} from "../../urls";
 
 export const FetchCategoriesList = () => {
   return useQuery('categories',
@@ -14,8 +14,8 @@ export const FetchLocalsList = (localCategory) => {
   )
 };
   
-export const FetchLocal = (localId) => {
-  return useQuery(['single_local', localId],
-    () => fetch(`${LOCAL_URL}/${localId}`).then(res => res.json()) 
+export const FetchLocal = (slug) => {
+  return useQuery(['single_local', slug],
+    () => fetch(`${LOCAL_URL}/${slug}`).then(res => res.json()) 
   )
 };

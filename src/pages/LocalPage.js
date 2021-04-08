@@ -11,12 +11,10 @@ import {
 } from "../library/single_local_ui/LocalPageStyles";
 
 export const LocalPage = () => {
-  const { id } = useParams();
-  console.log(id)
- 
-  const { data, status, error } = FetchLocal(id)
+  const { slug } = useParams();
+ console.log(slug)
+  const { data, status, error } = FetchLocal(slug)
 
-  console.log(data)
   if (status === "error") {
     return <div>{error.message}</div>;
   }
@@ -31,7 +29,7 @@ export const LocalPage = () => {
           <SectionTagline>Din lokala företagare i Torslanda</SectionTagline>
           <Map {...data}/>
           <LocalCard {...data} />
-        </>
+        </> 
       ) : null}
     </SectionContainer>
   );

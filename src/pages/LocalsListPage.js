@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import uniqid from "uniqid";
 
-import { FetchLocalsList } from "../reducers/localsFetch";
+import { FetchLocalsList } from "../hooks/locals/localsFetch";
 import { LocalsListThumb } from "../components/category_list/LocalsListThumb";
 import { LocalsContainer } from "../library/category_list_ui/LocalListPageStyles";
 import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
@@ -19,7 +19,8 @@ export const LocalsListPage = () => {
   return (
     <LocalsContainer>
       {status === "loading" ? (
-        <Loader /> ) : null}
+        <Loader /> 
+      ) : null}
 
       {status === "success" ? (
         data.map((local) => (

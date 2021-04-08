@@ -11,13 +11,13 @@ import {
   MainContainer,
 } from "../../library/category_list_ui/ThumbStyles";
 
-export const LocalsListThumb = ({ _id, tagline, img_url }) => {
+export const LocalsListThumb = ({ slug, _id, tagline, img_url }) => {
   const accessToken = useSelector((store) => store.users.user.accessToken);
 
   return (
     <MainContainer>
       <CardContainer>
-        <LocalLink to={`/local/${_id}`}>
+        <LocalLink to={`/local/${slug}`}>
           <ThumbImage url={img_url} imgSize={"98%"}/>
         </LocalLink>
         <Container>

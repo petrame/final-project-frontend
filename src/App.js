@@ -47,7 +47,7 @@ export const App = () => {
               <Route path="/locals/:category" exact>
                 <LocalsListPage component={CategoryThumb}/>
               </Route>
-              <Route path="/local/:id" exact >
+              <Route path="/local/:slug"  >
                 <LocalPage component={Map}/>
               </Route>
               <Route path="/login" exact >
