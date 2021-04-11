@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
 import { CategoryThumb } from "../components/category_list/CategoryThumb";
 import { Container, CategoriesContainer } from "../library/LandingPageStyles";
-import { FetchCategoriesList } from "reducers/localsFetch";
+import { FetchCategoriesList } from "../hooks/locals/localsFetch";
 import { useQueryClient } from "react-query";
 
 export const LandingPage = () => {

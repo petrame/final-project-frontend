@@ -10,7 +10,7 @@ export const FetchCategoriesList = () => {
 
 export const FetchLocalsList = (localCategory) => {
   return useQuery(['localslist', localCategory],
-    () => fetch(`${LOCALS_URL}/${localCategory}`).then(res => res.json())
+    () => fetch(`${LOCALS_URL}/categories/${localCategory}`).then(res => res.json())
   )
 };
   

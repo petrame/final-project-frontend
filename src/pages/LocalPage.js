@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { FetchLocal } from "../reducers/localsFetch";
+import { FetchLocal } from "../hooks/locals/localsFetch";
 import { LocalCard } from "../components/single_local/LocalCard";
 import { Map } from "../components/single_local/Map";
 import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
@@ -12,7 +12,7 @@ import {
 
 export const LocalPage = () => {
   const { slug } = useParams();
- console.log(slug)
+
   const { data, status, error } = FetchLocal(slug)
 
   if (status === "error") {
