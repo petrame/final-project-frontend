@@ -14,13 +14,13 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-    @media (max-width: 1198px) {
-      width: 45%;
-      flex-grow: 1;
-    }
-      @media (max-width: 400px) {
-      width: 100%;
-    }
+  @media (max-width: 1198px) {
+    width: 45%;
+    flex-grow: 1;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -29,10 +29,14 @@ export const CardContainer = styled.div`
   width: 320px;
   background-color: #fdf6e9;
   border-bottom-left-radius: 25px;
-  box-shadow: 
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 550px) {
+    margin: 8px;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.072), 0 10px 8px rgba(0, 0, 0, 0.086);
+  }
 `;
 
 export const LocalLink = styled(Link)`
@@ -47,7 +51,7 @@ export const ThumbTextBox = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-`
+`;
 export const ThumbImage = styled.div`
   height: 300px;
   background-image: url("${(props) => props.url}");
@@ -66,12 +70,15 @@ export const ThumbImage = styled.div`
 
   &:hover {
     filter: opacity(1);
-    transition: .3s ease-in-out
-
+    transition: 0.3s ease-in-out;
   }
   &:hover ${ThumbTextBox} {
     opacity: 0;
-    transition: .3s ease-in-out
+    transition: 0.3s ease-in-out;
+  }
+
+  @media (max-width: 550px) {
+    height: ${(props) => props.xsImageHeight};
   }
 `;
 
@@ -80,10 +87,16 @@ export const ThumbText = styled.p`
   margin: 20px 12px 12px;
   text-transform: uppercase;
   font-weight: 700;
+
+  @media (max-width: 550px) {
+    height: 66px;
+    margin: 0 12px;
+  }
 `;
 
 export const ThumbIcon = styled.span`
-margin-bottom: 20px;`;
+  margin-bottom: 20px;
+`;
 // Move up
 
 export const Container = styled.div`

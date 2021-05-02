@@ -4,21 +4,21 @@ import { useSelector } from "react-redux";
 import { FavouriteButton } from "./FavouriteButton";
 import {
   CardContainer,
+  Container,
   LocalLink,
+  MainContainer,
   ThumbImage,
   ThumbText,
-  Container,
-  MainContainer,
 } from "../../library/category_list_ui/ThumbStyles";
 
-export const LocalsListThumb = ({ _id, tagline, img_url }) => {
+export const LocalsListThumb = ({ _id, tagline, img_url, xsImageHeight }) => {
   const accessToken = useSelector((store) => store.users.user.accessToken);
 
   return (
     <MainContainer>
       <CardContainer>
         <LocalLink to={`/local/${_id}`}>
-          <ThumbImage url={img_url} imgSize={"98%"}/>
+          <ThumbImage url={img_url} imgSize={"98%"} xsImageHeight={"170px"}/>
         </LocalLink>
         <Container>
           <ThumbText>{tagline}</ThumbText>
