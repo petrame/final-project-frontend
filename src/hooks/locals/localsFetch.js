@@ -2,8 +2,12 @@ import { useQuery } from "react-query";
 import { LOCAL_URL, LOCALS_URL, CATEGORIES_URL } from "../../urls";
 
 const getCategoriesList = async () => {
-  const result = await fetch(CATEGORIES_URL).then((res) => res.json());
-  return result;
+  try {
+    const response = await fetch(CATEGORIES_URL);
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const useCategoriesList = () => {
@@ -11,10 +15,13 @@ export const useCategoriesList = () => {
 };
 
 const getLocalsCategoryList = async (category) => {
-  const result = await fetch(`${LOCALS_URL}/${category}`).then((res) =>
-    res.json()
-  );
-  return result;
+  try {
+    const url = `${LOCALS_URL}/${category}`;
+    const response = await fetch(url);
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const useLocalsCategoryList = (localCategory) => {
@@ -28,8 +35,13 @@ export const useLocalsCategoryList = (localCategory) => {
 };
 
 const getLocal = async (slug) => {
-  const result = await fetch(`${LOCAL_URL}/${slug}`).then((res) => res.json());
-  return result;
+  try {
+    const url = `${LOCAL_URL}/${slug}`;
+    const response = await fetch(url);
+    return await response.json();
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const useLocal = (slug) => {
