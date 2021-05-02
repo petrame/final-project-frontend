@@ -7,24 +7,21 @@ import { useCategoriesList } from "../hooks/locals/localsFetch";
 import { useQueryClient } from "react-query";
 
 export const LandingPage = () => {
-
-  const queryClient = useQueryClient();
- 
   const { data, isLoading, status, error } = useCategoriesList();
 
-  console.log(data)
   if (error) {
-    return <div>{error.message}</div> 
+    return <div>{error.message}</div>;
   }
 
   return (
     <Container>
       <CategoriesContainer>
-        {isLoading ? <Loader/> : null}
-        { status === "success" ?
-          (data.map((category) => (
-            <CategoryThumb key={category._id} {...category} /> ))
-          ) : null}
+        {isLoading ? <Loader /> : null}
+        {status === "success"
+          ? data.map((category) => (
+              <CategoryThumb key={category._id} {...category} />
+            ))
+          : null}
       </CategoriesContainer>
     </Container>
   );

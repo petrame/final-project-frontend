@@ -10,7 +10,7 @@ import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
 export const LocalsListPage = () => {
   const { category } = useParams();
 
-  const { data, status } = useLocalsCategoryList(category);
+  const { data, status, error } = useLocalsCategoryList(category);
 
   if (status === "loading") {
     return <Loader />;
