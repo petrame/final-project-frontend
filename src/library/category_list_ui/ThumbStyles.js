@@ -13,10 +13,8 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   @media (max-width: 1198px) {
     width: 45%;
-    flex-grow: 1;
   }
   @media (max-width: 400px) {
     width: 100%;
@@ -24,7 +22,7 @@ export const MainContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  margin: 20px;
+  margin: 4px 4px;
   padding: 20px;
   width: 320px;
   background-color: #fdf6e9;
@@ -45,6 +43,7 @@ export const LocalLink = styled(Link)`
 
 export const ThumbTextBox = styled.div`
   width: 85%;
+  margin-top: 0;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 5px;
   display: flex;
@@ -78,19 +77,23 @@ export const ThumbImage = styled.div`
   }
 
   @media (max-width: 550px) {
+    width: 170px;
     height: ${(props) => props.xsImageHeight};
   }
 `;
 
 export const ThumbText = styled.p`
   width: 100%;
-  margin: 20px 12px 12px;
+  height: 60px;
+  margin: 15px 12px 8px;
   text-transform: uppercase;
   font-weight: 700;
 
   @media (max-width: 550px) {
-    height: 66px;
+    height: 70px;
     margin: 0 12px;
+    font-size: 14px;
+    
   }
 `;
 
