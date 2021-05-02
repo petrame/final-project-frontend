@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
 import { CategoryThumb } from "../components/category_list/CategoryThumb";
 import { Container, CategoriesContainer } from "../library/LandingPageStyles";
-import { FetchCategoriesList } from "../hooks/locals/localsFetch";
+import { useCategoriesList } from "../hooks/locals/localsFetch";
 import { useQueryClient } from "react-query";
 
 export const LandingPage = () => {
 
   const queryClient = useQueryClient();
  
-  const { data, isLoading, status, error } = FetchCategoriesList();
+  const { data, isLoading, status, error } = useCategoriesList();
 
   console.log(data)
   if (error) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { FetchLocal } from "../hooks/locals/localsFetch";
+import { useLocal } from "../hooks/locals/localsFetch";
 import { LocalCard } from "../components/single_local/LocalCard";
 import { Map } from "../components/single_local/Map";
 import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
@@ -13,7 +13,11 @@ import {
 export const LocalPage = () => {
   const { slug } = useParams();
 
-  const { data, status, error } = FetchLocal(slug)
+  const { data, status, error } = useLocal(slug);
+
+  if (status === "loading") {
+    return <Loader />;
+  }
 
   if (status === "error") {
     return <div>{error.message}</div>;
@@ -21,15 +25,13 @@ export const LocalPage = () => {
 
   return (
     <SectionContainer>
-      {status === 'loading' ? 
-        <Loader /> : null}
-      {status === 'success' ? (
+      {status === "success" ? (
         <>
           <SectionHeader></SectionHeader>
           <SectionTagline>Din lokala företagare i Torslanda</SectionTagline>
-          <Map {...data}/>
+          <Map {...data} />
           <LocalCard {...data} />
-        </> 
+        </>
       ) : null}
     </SectionContainer>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import uniqid from "uniqid";
 
-import { FetchLocalsList } from "../hooks/locals/localsFetch";
+import { useLocalsCategoryList } from "../hooks/locals/localsFetch";
 import { LocalsListThumb } from "../components/category_list/LocalsListThumb";
 import { LocalsContainer } from "../library/category_list_ui/LocalListPageStyles";
 import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
@@ -10,23 +10,28 @@ import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
 export const LocalsListPage = () => {
   const { category } = useParams();
 
-  const { data, status, error } = FetchLocalsList(category)
+  const { data, isLoading, isError, isSuccess } = useLocalsCategoryList(category)
    
-  if (status === "error") {
-    return <div>{error.message}</div>;
+  if (isLoading) {
+    return <Loader />
   }
 
-  return (
-    <LocalsContainer>
-      {status === "loading" ? (
-        <Loader /> 
-      ) : null}
+  if (isError) {
+    return <div>{isError.message}</div>;
+  }
 
-      {status === "success" ? (
+  console.log(data)
+
+  return (
+    <>
+      {isSuccess ? (
         data.map((local) => (
+        
+    <LocalsContainer>
           <LocalsListThumb key={uniqid()} {...local} />
+    </LocalsContainer>
         ))
       ) : null}
-    </LocalsContainer>
+      </>
     )
 };
