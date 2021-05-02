@@ -11,9 +11,9 @@ import {
 } from "../library/single_local_ui/LocalPageStyles";
 
 export const LocalPage = () => {
-  const { slug } = useParams();
+  const { id } = useParams();
 
-  const { data, status, error } = useLocal(slug);
+  const { data, status, error } = useLocal(id);
 
   if (status === "loading") {
     return <Loader />;

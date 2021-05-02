@@ -10,28 +10,21 @@ import { LottieLoader as Loader } from "../library/global_ui/LottieLoader";
 export const LocalsListPage = () => {
   const { category } = useParams();
 
-  const { data, isLoading, isError, isSuccess } = useLocalsCategoryList(category)
-   
-  if (isLoading) {
-    return <Loader />
+  const { data, status } = useLocalsCategoryList(category);
+
+  if (status === "loading") {
+    return <Loader />;
   }
 
-  if (isError) {
-    return <div>{isError.message}</div>;
+  if (status === "error") {
+    return <div>{error.message}</div>;
   }
-
-  console.log(data)
 
   return (
-    <>
-      {isSuccess ? (
-        data.map((local) => (
-        
     <LocalsContainer>
-          <LocalsListThumb key={uniqid()} {...local} />
+      {status === "success"
+        ? data.map((local) => <LocalsListThumb key={uniqid()} {...local} />)
+        : null}
     </LocalsContainer>
-        ))
-      ) : null}
-      </>
-    )
+  );
 };

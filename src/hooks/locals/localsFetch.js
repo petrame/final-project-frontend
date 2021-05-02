@@ -34,9 +34,9 @@ export const useLocalsCategoryList = (localCategory) => {
   );
 };
 
-const getLocal = async (slug) => {
+const getLocal = async (id) => {
   try {
-    const url = `${LOCAL_URL}/${slug}`;
+    const url = `${LOCAL_URL}/${id}`;
     const response = await fetch(url);
     return await response.json();
   } catch (err) {
@@ -44,8 +44,8 @@ const getLocal = async (slug) => {
   }
 };
 
-export const useLocal = (slug) => {
-  return useQuery(["single_local", slug], () => getLocal(slug), {
-    enabled: !!slug,
+export const useLocal = (localId) => {
+  return useQuery(["single_local", localId], () => getLocal(localId), {
+    enabled: !!localId,
   });
 };
