@@ -27,7 +27,7 @@ export const LocalPage = () => {
     <SectionContainer>
       {status === "success" ? (
         <>
-          <SectionHeader></SectionHeader>
+          <SectionHeader>{data.name}</SectionHeader>
           <SectionTagline>Din lokala företagare i Torslanda</SectionTagline>
           <Map {...data} />
           <LocalCard {...data} />

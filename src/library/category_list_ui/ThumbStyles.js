@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 1198px) {
-    width: 45%;
+    max-width: 45%;
   }
   @media (max-width: 400px) {
     width: 100%;
@@ -99,7 +99,7 @@ export const ThumbText = styled.p`
 export const CategoryText = styled.h3`
   width: 100%;
   text-transform: uppercase;
-  
+
   @media (max-width: 550px) {
     font-size: 22px;
   }
