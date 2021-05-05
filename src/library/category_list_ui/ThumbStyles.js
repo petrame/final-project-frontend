@@ -77,7 +77,7 @@ export const ThumbImage = styled.div`
   }
 
   @media (max-width: 550px) {
-    width: 170px;
+    width: ${(props) => props.imgageWidth};
     height: ${(props) => props.xsImageHeight};
   }
 `;
@@ -93,9 +93,17 @@ export const ThumbText = styled.p`
     height: 70px;
     margin: 0 12px;
     font-size: 14px;
-    
   }
 `;
+
+export const CategoryText = styled.h3`
+  width: 100%;
+  text-transform: uppercase;
+  
+  @media (max-width: 550px) {
+    font-size: 22px;
+  }
+`
 
 export const ThumbIcon = styled.span`
   margin-bottom: 20px;
